@@ -13,9 +13,8 @@
 
 <table border=1>
 	<tr>
-		<td>피자 코드</td>
-		<td>피자이름</td>
-		<td>가격</td>
+		<td>상점명</td>
+		<td>총 판매액</td>
 	</tr>
 <%
 	try {
@@ -29,15 +28,26 @@
 			out.println("Database Connect Fail!");
 		}
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT PCODE, PNAME, COST FROM TBL_PIZZA_01");
+		String query = "SELECT " + 
+			    			"SHOP.SNAME, " + 
+			    			"SUM( PIZZA.COST * SALELIST.AMOUNT ) AS TOTAL_COST " +
+						"FROM " +
+			    			"TBL_SALELIST_01 SALELIST, TBL_SHOP_01 SHOP, TBL_PIZZA_01 PIZZA " +
+						"WHERE " +
+			    			"SALELIST.SCODE = SHOP.SCODE AND " +
+			    			"SALELIST.PCODE = PIZZA.PCODE " +
+						"GROUP BY " +
+			    			"SHOP.SNAME " +
+						"ORDER BY " +
+							"TOTAL_COST desc ";
+		ResultSet rs = stmt.executeQuery(query);
 		%>
 		<%
 		while (rs.next()) {
 			%>
 					<tr>
-						<td><% out.print(rs.getString(1));%></td>
-						<td><% out.print(rs.getString(2));%></td>
-						<td><% out.print(rs.getInt(3));%></td>
+						<td><% out.println(rs.getString(1));%></td>
+						<td><% out.println(rs.getInt(2));%></td>
 					</tr>
 			<%
 		}
