@@ -20,6 +20,8 @@
 		out.println(String.format(query, pizza_code, pizza_name, cost));
 		ResultSet rs = stmt.executeQuery(String.format(query, pizza_code, pizza_name, cost)); 
 
+		conn.commit();
+		
 		stmt.close();
 		conn.close();
 	}
