@@ -4,6 +4,23 @@
 <h3>INSERT</h3>
 
 <script>
+	function submit_form(){
+		if( document.input_form.sale_code.value === ""){
+			alert("판매코드를 입력해야 합니다.");
+			document.input_form.sale_code.focus();
+		}
+		if( document.input_form.sale_date.value === ""){
+			alert("판매일자를 입력해야 합니다.");
+			document.input_form.sale_code.focus();
+		}
+		if( document.input_form.sale_amount.value === ""){
+			alert("판매개수를 입력해야 합니다.");
+			document.input_form.sale_code.focus();
+		}
+		alert("정상적으로 처리되었습니다!");
+		document.input_form.submit();
+	}
+	
 	function reset_form(){
 		document.input_form.reset();
 	}
@@ -65,7 +82,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="등록하기">
+				<input type="button" value="등록하기" onclick="submit_form()">
 				<input type="button" value="다시쓰기" onclick="reset_form()">
 			</td>
 		</tr>
