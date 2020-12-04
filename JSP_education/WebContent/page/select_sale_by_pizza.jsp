@@ -37,7 +37,7 @@
     						"SALELIST.PCODE = PIZZA.PCODE " +
 						"GROUP BY " +
     						"PIZZA.PNAME, " +
-    						"PIZZA.COST" +
+    						"PIZZA.COST " +
 						"ORDER BY " +
     						"PIZZA.COST * SUM( SALELIST.AMOUNT ) desc ";		
 		ResultSet rs = stmt.executeQuery(query);
