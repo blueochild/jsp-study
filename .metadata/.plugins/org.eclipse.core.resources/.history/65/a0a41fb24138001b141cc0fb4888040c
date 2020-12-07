@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		String section = request.getParameter("section") != null ? request.getParameter("section") : "";
+		switch(section){
+			case "A":
+				break;
+			case "B":
+				break;
+			case "C":
+				%><include file="pages/C.jsp"><%;
+				break;
+			default:
+				break;
+		}
+	%>
+	<h1>INDEX</h1>
+</body>
+</html>
