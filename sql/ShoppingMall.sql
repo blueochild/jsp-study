@@ -1,27 +1,25 @@
 CREATE TABLE TBL_PRODUCT ( 
-    product_id NUMBER(10) NOT NULL PRIMARY KEY,
+    product_id NUMBER(10) NOT NULL,
     name VARCHAR2(40),
     price NUMBER(10),
-    category_id NUMBER(10) NOT NULL
+    category_id NUMBER(10) NOT NULL,
+    constraint PK_PRODUCT primary key (product_id)
 );
 
 CREATE TABLE TBL_CATEGORY(
-    category_id NUMBER(10) NOT NULL PRIMARY KEY,
-    name VARCHAR2(20)
+    category_id NUMBER(10) NOT NULL,
+    name VARCHAR2(20),
+    constraint PK_CATEGORY primary key (category_id)
 );
 
 CREATE TABLE TBL_SALE(
-    sale_id NUMBER(10) NOT NULL PRIMARY KEY,
+    sale_id NUMBER(10) NOT NULL,
     product_id NUMBER(10) NOT NULL,
     purchase_date DATE,
     sale_price NUMBER(10) NOT NULL,
-    amount NUMBER(5) NOT NULL
+    amount NUMBER(5) NOT NULL,
+    constraint PK_SALE primary key (sale_id)
 );
-
-SELECT * FROM TBL_SALE;
-SELECT * FROM TBL_CATEGORY;
-SELECT * FROM TBL_PRODUCT;
-
 
 INSERT INTO TBL_PRODUCT VALUES( 1, '컴퓨터', 1000000, 1);
 INSERT INTO TBL_PRODUCT VALUES( 2, '태블릿 PC', 800000, 1);
@@ -70,11 +68,12 @@ WHERE
 
 
 SELECT
-    BTL_PRODUCT.name,
-    SUM(TBL_SALE. * TBL_SALE.amount),
-    SUM(TBL_SALE.amount)
-FROM 
-    TBL_SALE, TBL_PRODUCT
+    TBL_PRODUCT.NAME,
+    SUM(TBL_PRODUCT.PRICE * TBL_SALE.AMOUNT),
+    SUM(TBL_SALE.AMOUNT)
+FROM
+    TBL_PRODUCT, TBL_SALE
 WHERE
-    TBL_SALE.product_id = TBL_PRODUCT.product_id;
-
+    TBL_PRODUCT.product_id = TBL_SALE.product_id
+GROUP BY
+    TBL_PRODUCT.NAME;
