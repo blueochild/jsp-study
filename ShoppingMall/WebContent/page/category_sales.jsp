@@ -18,7 +18,7 @@
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			Connection conn = DriverManager.getConnection
-			("jdbc:oracle:thin:@//122.128.169.32:1521/xe", "sdh_9", "1234");
+			("jdbc:oracle:thin:@//localhost/xe", "system", "1234");
 			if (conn != null) {
 			System.out.println("Database Connected!");
 			}
