@@ -78,6 +78,17 @@ WHERE
 GROUP BY
     TBL_PRODUCT.NAME;
 
+"SELECT " +
+    "TBL_PRODUCT.NAME, " +
+    "SUM(TBL_SALE.SALE_PRICE), " +
+    "SUM(TBL_SALE.AMOUNT) " +
+"FROM " +
+    "TBL_PRODUCT, TBL_SALE " +
+"WHERE " +
+    "TBL_PRODUCT.product_id = TBL_SALE.product_id " +
+"GROUP BY " +
+    "TBL_PRODUCT.NAME ";
+
 
 SELECT
     TBL_CATEGORY.NAME,
