@@ -25,7 +25,7 @@
 		case "product_sales":
 			%><%@ include file="page/product_sales.jsp" %><%
 			break;
-		case "category_sale":
+		case "category_sales":
 			%><%@ include file="page/category_sales.jsp" %><%
 			break;
 		default:

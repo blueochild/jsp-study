@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
+	<table border=1>
 		<tr>
 			<td>상품명</td>
 			<td>총 판매 금액</td>
@@ -27,15 +27,16 @@
 			}
 			
 			String query = "SELECT " +
-				    			"TBL_SALE.sale_id, " +
-				    			"TBL_PRODUCT.name, " +
-				    			"TBL_SALE.purchase_date, " +
-				    			"TBL_SALE.sale_price, " +
-				    			"TBL_SALE.amount " +
+				    			"TBL_CATEGORY.NAME, " +
+				   				"SUM(TBL_PRODUCT.PRICE * TBL_SALE.AMOUNT), " +
+				    			"SUM(TBL_SALE.AMOUNT) " +
 							"FROM " +
-				    			"TBL_SALE, TBL_PRODUCT " + 
+				    			"TBL_CATEGORY, TBL_SALE, TBL_PRODUCT " +
 							"WHERE " +
-				    			"TBL_SALE.product_id = TBL_PRODUCT.product_id ";		
+				    			"TBL_CATEGORY.CATEGORY_ID = TBL_PRODUCT.CATEGORY_ID AND " +
+				    			"TBL_PRODUCT.PRODUCT_ID = TBL_SALE.PRODUCT_ID " + 
+							"GROUP BY " +
+				    			"TBL_CATEGORY.NAME ";		
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
@@ -43,9 +44,9 @@
 			while(rs.next()){
 		%>
 			<tr>
-				<td><% %></td>
-				<td><% %></td>
-				<td><% %></td>
+				<td><%= rs.getString(1) %></td>
+				<td><%= rs.getInt(2) %></td>
+				<td><%= rs.getInt(3)%></td>
 			</tr>
 		<%
 			}
