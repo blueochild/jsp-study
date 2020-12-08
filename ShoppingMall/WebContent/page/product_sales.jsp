@@ -35,7 +35,7 @@
 							"WHERE " +
 				    			"TBL_PRODUCT.product_id = TBL_SALE.product_id " +
 							"GROUP BY " +
-				    			"TBL_PRODUCT.NAME ";		
+				    			"TBL_PRODUCT.NAME, TBL_PRODUCT. ";		
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);

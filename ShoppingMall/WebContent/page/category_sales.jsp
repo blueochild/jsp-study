@@ -36,7 +36,7 @@
 				    			"TBL_CATEGORY.CATEGORY_ID = TBL_PRODUCT.CATEGORY_ID AND " +
 				    			"TBL_PRODUCT.PRODUCT_ID = TBL_SALE.PRODUCT_ID " + 
 							"GROUP BY " +
-				    			"TBL_CATEGORY.NAME ";		
+				    			"TBL_CATEGORY.CATEGORY_ID, TBL_CATEGORY.NAME ";		
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
