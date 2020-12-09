@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/css.css">
 </head>
 <body>
 	<%@ include file="static/header.jsp" %>
@@ -14,6 +15,9 @@
 	
 	<%
 		switch(section){
+			case "AuditionInput":
+				%><%@ include file="page/AuditionInput.jsp" %><%
+				break;
 			case "UserList":
 				%><%@ include file="page/UserList.jsp" %><%
 				break;

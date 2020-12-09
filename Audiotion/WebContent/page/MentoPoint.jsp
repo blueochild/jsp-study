@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<h2>멘토점수 조회</h2>
 <table border=1>
 	<tr>
 		<td>채점번호</td>
@@ -54,7 +55,7 @@
 				<td><% out.println(rs.getString(2)); %></td>
 				<td><% out.println(rs.getString(3)); %></td>
 				<td><% 
-					Y = rs.getString(3);
+					Y = rs.getString(4);
 					M = Y.substring(4, 6);
 					D = Y.substring(6);
 					Y = Y.substring(0, 4);

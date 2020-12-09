@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 
+<h2>참가자등수 조회</h2>
 <table border=1>
 	<tr>
 		<td>참가번호</td>
