@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<ul>
-	<li><a href=""></a></li>
-</ul>
+<nav>
+	<ul>
+		<li><a href="index.jsp?section=MentoPoint">멘토점수 조회</a></li>
+		<li><a href="index.jsp?section=UserRank">참가자등수 조회</a></li>
+	</ul>
+</nav>

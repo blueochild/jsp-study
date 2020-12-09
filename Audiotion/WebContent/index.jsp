@@ -7,18 +7,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% String section = request.getParameter("section") != null ? request.getParameter("section") : ""; %>
+	<%@ include file="static/header.jsp" %>
+	<%@ include file="static/nav.jsp" %>
 	
-	<import file="static/header">
+	<% String section = request.getParameter("section") != null ? request.getParameter("section") : ""; %>
 	
 	<%
 		switch(section){
-			case "":
+			case "UserRank":
+				%><%@ include file="page/UserRank.jsp" %><%
+				break;
+			case "MentoPoint":
+				%><%@ include file="page/MentoPoint.jsp" %><%
+				break;
+			default :
+				%><%@ include file="static/index.jsp" %><%
 				break;
 		}
 	%>
 	
-	<import file="static/footer">
+	<%@ include file="static/footer.jsp" %>
 	
 </body>
 </html>
