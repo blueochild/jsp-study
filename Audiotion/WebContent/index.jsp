@@ -14,11 +14,14 @@
 	
 	<%
 		switch(section){
-			case "UserRank":
-				%><%@ include file="page/UserRank.jsp" %><%
+			case "UserList":
+				%><%@ include file="page/UserList.jsp" %><%
 				break;
 			case "MentoPoint":
 				%><%@ include file="page/MentoPoint.jsp" %><%
+				break;
+			case "UserRank":
+				%><%@ include file="page/UserRank.jsp" %><%
 				break;
 			default :
 				%><%@ include file="static/index.jsp" %><%
