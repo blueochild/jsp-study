@@ -34,6 +34,9 @@
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			String Rank = "";
+			String Y = "";
+			String M = "";
+			String D = "";
 			
 			while(rs.next()){
 				if( rs.getInt(5) >= 70){
@@ -50,7 +53,13 @@
 				<td><% out.println(rs.getInt(1)); %></td>
 				<td><% out.println(rs.getString(2)); %></td>
 				<td><% out.println(rs.getString(3)); %></td>
-				<td><% out.println(rs.getString(4)); %></td>
+				<td><% 
+					Y = rs.getString(3);
+					M = Y.substring(4, 6);
+					D = Y.substring(6);
+					Y = Y.substring(0, 4);
+					out.println(Y+"년"+M+"월"+D+"일");  
+				%></td>
 				<td><% out.println(rs.getInt(5)); %></td>
 				<td><% out.println(Rank); %></td>
 				<td><% out.println(rs.getString(6)); %></td>

@@ -17,7 +17,9 @@
 					("jdbc:oracle:thin:@//localhost/xe", "system", "1234");
 			
 			String query = "SELECT * FROM TBL_ARTIST_201905 ";	
-			String sex = "";
+			String Y = "";
+			String M = "";
+			String D = "";
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
@@ -27,7 +29,13 @@
 			<tr>
 				<td><% out.println(rs.getString(1)); %></td>
 				<td><% out.println(rs.getString(2)); %></td>
-				<td><% out.println(rs.getString(3)); %></td>
+				<td><% 
+					Y = rs.getString(3);
+					M = Y.substring(4, 6);
+					D = Y.substring(6);
+					Y = Y.substring(0, 4);
+					out.println(Y+"년"+M+"월"+D+"일"); 
+				%></td>
 				<td><% out.println(rs.getString(4).equals("F") ? "여":"남"); %></td>
 				<td><% 
 					if(rs.getString(5).equals("1")){
