@@ -15,8 +15,8 @@
 	
 	<%
 		switch(section){
-			case "AuditionInput":
-				%><%@ include file="page/AuditionInput.jsp" %><%
+			case "register_audition":
+				%><%@ include file="page/register_audition.jsp" %><%
 				break;
 			case "UserList":
 				%><%@ include file="page/UserList.jsp" %><%
