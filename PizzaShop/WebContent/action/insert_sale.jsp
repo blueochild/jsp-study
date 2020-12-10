@@ -26,5 +26,5 @@
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("../index.jsp?section=index");
+		response.sendRedirect("../index.jsp?section=TotalSales");
 %>

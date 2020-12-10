@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<section>
+<section class="page">
 	<h2>매출전표등록</h2>
 	<form action="action/insert_sale.jsp"name="action_form">
 	<table border=1>
@@ -63,14 +63,17 @@
 <script>
 	function submit_form(){
 		if(document.action_form.sale_no.value == ""){
+			document.action_form.sale_no.focus();
 			alert("매출전표번호가 입력되지 않았습니다.");
 			return;
 		}
 		if(document.action_form.scode.value == ""){
+			document.action_form.scode.focus();
 			alert("지점코드가 입력되지 않았습니다.");
 			return;
 		}
 		if(document.action_form.date.value == ""){
+			document.action_form.date.focus();
 			alert("판매일자가 입력되지 않았습니다.");
 			return;
 		}
@@ -79,6 +82,7 @@
 			return;
 		}
 		if(document.action_form.amount.value == ""){
+			document.action_form.amount.focus();
 			alert("판매수량이 입력되지 않았습니다.");
 			return;
 		}

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<section>
+<section class="page">
 	<h2>지점별 매출 현황</h2>
-	<table border=1>
+	<table border=1 >
 		<tr>
 			<td>지점 코드</td>
 			<td>지점 명</td>

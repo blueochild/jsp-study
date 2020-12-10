@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<section>
+<section class="page">
 <h3>피자전문점 판매관리 프로그램</h3>
 <h4>피자전문점 판매관리 프로그램을 작성한다.</h4>
 <pre>
+
 1.피자코드 테이블을 생성한다.
 2.지점코드 테이블을 생성한다.
 3.매출정보 테이블을 생성한다.

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<section>
+<section class="page">
 	<h2>통합매출현황조회</h2>
 	<table border=1>
 		<tr>
