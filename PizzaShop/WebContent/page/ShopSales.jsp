@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <section>
-	<h2>상품별 매출 현황</h2>
+	<h2>지점별 매출 현황</h2>
 	<table border=1>
 		<tr>
-			<td>피자코드</td>
-			<td>피자 명</td>
+			<td>지점 코드</td>
+			<td>지점 명</td>
 			<td>총매출액</td>
 		</tr>
 <%
@@ -16,17 +16,18 @@
 					("jdbc:oracle:thin:@//localhost/xe", "system", "1234");
 			
 			String query = "SELECT " +
-				    			"PIZZA.PCODE, " +
-				    			"PIZZA.PNAME, " +
+				    			"SHOP.SCODE, " +
+				    			"SHOP.SNAME, " +
 				    			"TO_CHAR(SUM(PIZZA.COST * SALELIST.AMOUNT), 'L999,999,999') " +
 							"FROM " +
-				    			"PIZZA, SALELIST " +
+				    			"PIZZA, SHOP, SALELIST " +
 							"WHERE " +
+				    			"SHOP.SCODE = SALELIST.SCODE AND " +
 				    			"PIZZA.PCODE = SALELIST.PCODE " +
 							"GROUP BY " +
-				    			"PIZZA.PCODE, PIZZA.PNAME " +
+				    			"SHOP.SNAME, SHOP.SCODE " +
 							"ORDER BY " +
-				    			"SUM(PIZZA.COST * SALELIST.AMOUNT) DESC ";
+				    			"SHOP.SCODE ";
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
