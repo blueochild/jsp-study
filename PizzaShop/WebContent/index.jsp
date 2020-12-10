@@ -1,12 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%
+//	String section = request.getParameter(section) != null ? request.getParameter(section) : "";
+	String section = "";
+%>
 
-</body>
-</html>
+<%@ include file="static/header.jsp"%>
+<%@ include file="static/nav.jsp"%> 
+
+<%
+	switch(section){
+		case "":
+			%><%@ include file=""%><%
+			break;
+	}
+%>
+
+<%@ include file="static/footer.jsp"%>
