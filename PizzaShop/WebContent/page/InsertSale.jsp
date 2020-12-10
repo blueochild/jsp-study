@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*" %>
 <section>
 	<h2>매출전표등록</h2>
-	<form action="actio/sale_action.jsp"name="sale_form">
+	<form action="action/insert_sale.jsp"name="action_form">
 	<table border=1>
 		<tr>
 			<td>매출전표번호</td>
@@ -20,8 +20,8 @@
 		<tr>
 			<td>피자코드</td>
 			<td>
-				<select>
-					<option value="none">피자 선택</option>
+				<select name="pcode">
+					<option value="0">피자 선택</option>
 				<%
 					try {
 					Class.forName("oracle.jdbc.OracleDriver");
@@ -62,10 +62,31 @@
 
 <script>
 	function submit_form(){
-		
+		if(document.action_form.sale_no.value == ""){
+			alert("매출전표번호가 입력되지 않았습니다.");
+			return;
+		}
+		if(document.action_form.scode.value == ""){
+			alert("지점코드가 입력되지 않았습니다.");
+			return;
+		}
+		if(document.action_form.date.value == ""){
+			alert("판매일자가 입력되지 않았습니다.");
+			return;
+		}
+		if(document.action_form.pcode.selectedIndex === 0){
+			alert("피자코드가 입력되지 않았습니다.");
+			return;
+		}
+		if(document.action_form.amount.value == ""){
+			alert("판매수량이 입력되지 않았습니다.");
+			return;
+		}
+		alert("매출전표를 등록합니다!");
+		document.action_form.submit();
 	}
 	function reset_form(){
 		alert("정보를 지우고 처음부터 다시 입력 합니다!");
-		document.sale_form.reset();
+		document.action_form.reset();
 	}
 </script>
