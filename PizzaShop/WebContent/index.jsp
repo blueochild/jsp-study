@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-//	String section = request.getParameter(section) != null ? request.getParameter(section) : "";
-	String section = "";
+	String section = request.getParameter("section") != null ? request.getParameter("section") : "";
 %>
 
 <%@ include file="static/header.jsp"%>
@@ -11,8 +10,11 @@
 
 <%
 	switch(section){
-		case "":
-			%><%@ include file=""%><%
+		case "ProductSales":
+			%><%@ include file="page/ProductSales.jsp"%><%
+			break;
+		default :
+			%><%@ include file="static/index.jsp"%><%
 			break;
 	}
 %>
