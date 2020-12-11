@@ -13,6 +13,9 @@
 	
 	<%
 		switch(section){
+			case  "shopSales":
+				%><%@ include file="page/shopSales.jsp" %><%
+				break;
 			case "productSales":
 				%><%@ include file="page/productSales.jsp" %><%
 				break;
