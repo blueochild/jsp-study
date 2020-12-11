@@ -7,9 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<% String section = request.getParameter("section") != null ? request.getParameter("section") : ""; %>
 	<%@ include file="static/header.jsp" %>
 	<%@ include file="static/nav.jsp" %>
 	
+	<%
+		switch(section){
+			case "productSales":
+				%><%@ include file="page/productSales.jsp" %><%
+				break;
+			default:
+				%><%@ include file="static/index.jsp" %><%
+				break;
+		}
+	%>
 	
 	<%@ include file="static/footer.jsp" %>
 </body>
